@@ -368,47 +368,16 @@
       
         
           
-            <h1 id="通过Chrome调试IOS的webview-Windows系统"><a href="#通过Chrome调试IOS的webview-Windows系统" class="headerlink" title="通过Chrome调试IOS的webview  (Windows系统)"></a>通过Chrome调试IOS的webview  (Windows系统)</h1><h3 id="安装-iTunes-识别iPhone-设备"><a href="#安装-iTunes-识别iPhone-设备" class="headerlink" title="安装 iTunes 识别iPhone 设备"></a>安装 iTunes 识别iPhone 设备</h3><p>   Windows 系统首先要安装 iTunes ，打开 Apple 官网下载 iTunes 并完成 iTunes 安装，否则计算机无法正确识别 iPhone 设备。 </p>
-<h3 id="开启调试模式"><a href="#开启调试模式" class="headerlink" title="开启调试模式"></a>开启调试模式</h3><p>   要远程调试 IOS Safari ，必须启用 Web 检查 功能，打开 iPhone 依次进入 设置 &gt; Safari &gt; 高级 &gt; Web 检查 &gt; 启用。 </p>
-<h3 id="安装ios-webkit-debug-proxy"><a href="#安装ios-webkit-debug-proxy" class="headerlink" title="安装ios-webkit-debug-proxy"></a>安装ios-webkit-debug-proxy</h3><p>  简介：ios-webkit-debug-proxy 是一个 DevTools proxy ，项目托管在 Github 上。其使得开发者可以发送命令到真实（或虚拟）IOS设备中的 Safari 浏览器或 UIWebViews  （备注：app 需要响应开发人员提供debug包，才能调试）  </p>
-<h4 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h4><p>  项目地址：<a href="https://github.com/artygus/ios-webkit-debug-proxy-win32" target="_blank" rel="external">https://github.com/artygus/ios-webkit-debug-proxy-win32</a></p>
-<p>  在 Binaries 小节点击下载链接。</p>
-<p>  下载后完成解压缩，将ios-webkit-debug-proxy-win32 目录复制到 C:\ 盘。</p>
-<p>  在系统环境变量添加 C:\ios-webkit-debug-proxy-win32。  </p>
-<h3 id="启动-proxy"><a href="#启动-proxy" class="headerlink" title="启动 proxy"></a>启动 proxy</h3><p>   打开命令行终端，执行：  </p>
-<blockquote>
-<p>  ios_webkit_debug_proxy.exe -f  chrome-devtools://devtools/bundled/inspector.html</p>
-</blockquote>
-<p>   ios_webkit_debug_proxy.exe 是解压ios-webkit-debug-proxy-win32中的exe的名称，注意有些包文件解压名称不一定是这个名称。</p>
-<p>   输出结果如下：</p>
-<blockquote>
-<p>  C:>ios_webkit_debug_proxy.exe -f  chrome-devtools://devtools/bundled/inspector.html<br>  Listing devices on :9221<br>  Connected :9222 to iPhone (2) (1b778a7da0b8ff5ce19c274e350e828cdc396ed0)    </p>
-</blockquote>
-<h3 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h3><p>   打开 chrome 浏览器，在地址栏输入 <a href="http://localhost:9221/" target="_blank" rel="external">http://localhost:9221/</a> ，这里会显示所有已连接的设备清单，选择一个设备并点击打开。  </p>
-<blockquote>
-<p> iOS Devices:<br> localhost:9222 - iPhone (2)</p>
-</blockquote>
-<p>   打开的页面可看到当前 iphone 中 Safari 浏览器打开的所有页面，点击要调试的页面链接打开即可进入调试界面。界面信息如下 </p>
-<blockquote>
-<p> Inspectable pages for iPhone (2):<br>  1.<a href="http://192.168.32.117/#/financial/productdetail?prdCode=hess001&amp;risklevel=0" target="_blank" rel="external">http://192.168.32.117/#/financial/productdetail?prdCode=hess001&amp;risklevel=0</a>  </p>
-<p>  Note: Your browser may block1,2 the above links with JavaScript console error:<br>  Not allowed to load local resource: chrome-devtools://…<br>  To open a link: right-click on the link (control-click on Mac), ‘Copy Link Address’, and paste it into address bar.   </p>
-</blockquote>
-<p>   第一行提示是来自那个设备。<br>   第二行提示是页面url  前面的1是序号 有可能有多个1、2、3。。。 对后面调试地址有影响。<br>   后面的有一个错误提示如上 <code>NOTE：</code>后面的 </p>
-<pre><code>提示浏览器禁止页面加载本地资源，需在上面的链接上点击右键复制链接，然后手动新建一个标签页将链接粘贴进去，回车访问
-</code></pre><p>   不用管直接复制打开下面地址：</p>
-<pre><code>&gt;  chrome-devtools://devtools/bundled/inspector.html?ws=localhost:9222/devtools/page/1     
-</code></pre><p>page后面的1就是你上面显示url的序号（如果你页面需要不是请替换）,打开后即可看到常见的 chrome 调试窗口。接下来，就可以进行正常的调试工作了。</p>
-<h1 id="通过Chrome调试IOS的webview-Ios系统"><a href="#通过Chrome调试IOS的webview-Ios系统" class="headerlink" title="通过Chrome调试IOS的webview  (Ios系统)"></a>通过Chrome调试IOS的webview  (Ios系统)</h1><h3 id="开启调试模式-1"><a href="#开启调试模式-1" class="headerlink" title="开启调试模式"></a>开启调试模式</h3><p>   要远程调试 IOS Safari ，必须启用 Web 检查 功能，打开 iPhone 依次进入 设置 &gt; Safari &gt; 高级 &gt; Web 检查 &gt; 启用。 </p>
-<h3 id="安装ios-webkit-debug-proxy-1"><a href="#安装ios-webkit-debug-proxy-1" class="headerlink" title="安装ios-webkit-debug-proxy"></a>安装ios-webkit-debug-proxy</h3><blockquote>
-<p>   brew install ios-webkit-debug-proxy   </p>
-</blockquote>
-<h3 id="启动-proxy-1"><a href="#启动-proxy-1" class="headerlink" title="启动 proxy"></a>启动 proxy</h3><p>   在terminal中执行</p>
-<blockquote>
-<p>  ios_webkit_debug_proxy -f chrome-devtools://devtools/bundled/inspector.html</p>
-</blockquote>
-<h3 id="后面的步骤"><a href="#后面的步骤" class="headerlink" title="后面的步骤"></a>后面的步骤</h3><p>   同Windows</p>
-
-          
+          通过Chrome调试IOS的webview  (Windows系统)安装 iTunes 识别iPhone 设备   Windows 系统首先要安装 iTunes ，打开 Apple 官网下载 iTunes 并完成 iTunes 安装，否则计算机无法正确识别 iPhone 设备。 
+开启调试模式   
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/ios-view/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -518,17 +487,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
