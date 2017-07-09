@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://foreend.com/"/>
-  <updated>2017-07-09T09:23:52.052Z</updated>
+  <updated>2017-07-09T12:19:18.649Z</updated>
   <id>http://foreend.com/</id>
   
   <author>
@@ -20,12 +20,23 @@
     <link href="http://foreend.com/2017/07/09/newpage/"/>
     <id>http://foreend.com/2017/07/09/newpage/</id>
     <published>2017-07-09T09:23:52.000Z</published>
-    <updated>2017-07-09T09:23:52.052Z</updated>
+    <updated>2017-07-09T12:19:18.649Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>]]></content>
     
     <summary type="html">
     
+      &lt;blockquote&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempo
+    
     </summary>
     
+      <category term="Testing" scheme="http://foreend.com/categories/Testing/"/>
+    
+    
+      <category term="Testing" scheme="http://foreend.com/tags/Testing/"/>
+    
+      <category term="Another Tag" scheme="http://foreend.com/tags/Another-Tag/"/>
     
   </entry>
   
